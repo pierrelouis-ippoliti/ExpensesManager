@@ -1,2 +1,3 @@
 # ExpensesManager
-Blazor WASM App to track your depenses
+
+Full app using C# to track your expenses.

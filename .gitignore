@@ -5,3 +5,22 @@ out/
 
 #Ignore Visual Studio files
 .vs/
+.vscode/
+*.cache
+*.swp
+
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+
+wwwroot/css/tailwind.css
+wwwroot/css/tailwind.min.css
+
+appsettings.Development.json
+appsettings.*.json
+!appsettings.json
+
+coverage/
+*.coverage
+*.coveragexml

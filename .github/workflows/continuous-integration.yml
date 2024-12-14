@@ -20,11 +20,26 @@ jobs:
       with:
         dotnet-version: 9.0.x
 
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 22.12.x
+
     - name: Restore dependencies
       run: dotnet restore ExpensesManager
 
-    - name: Build
-      run: dotnet build --no-restore ExpensesManager
+    - name: Install npm dependencies
+      run: npm ci --prefix ./ExpensesManager/src/ExpensesManager.WebUI
 
-    - name: Test
-      run: dotnet test --no-build --verbosity normal ExpensesManager
+    - name: Build Tailwind CSS
+      run: npm run build:css --prefix ./ExpensesManager/src/ExpensesManager.WebUI
+
+    - name: Build application
+      run: dotnet build --no-restore --configuration Release ExpensesManager
+
+    - name: Run unit tests
+      run: dotnet test --no-build --configuration Release --verbosity normal ExpensesManager
+
+    - name: Run code coverage
+      run: |
+        dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=opencover

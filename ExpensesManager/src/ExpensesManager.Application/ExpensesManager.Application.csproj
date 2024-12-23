@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ExpensesManager.Domain\ExpensesManager.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

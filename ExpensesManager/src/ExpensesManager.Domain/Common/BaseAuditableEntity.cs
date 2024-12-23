@@ -1,6 +1,6 @@
 ﻿namespace ExpensesManager.Domain.Common
 {
-    public abstract class BaseAuditableEntity : BaseEntity<Guid>
+    public abstract class BaseAuditableEntity : BaseEntity
     {
         public DateTimeOffset CreatedAt { get; set; }
         public string CreatedBy { get; set; } = string.Empty;
